@@ -1,7 +1,8 @@
 import { render, screen } from "@testing-library/react";
-
-import ApiHealthWidget from "../src/components/ApiHealthCheck.jsx";
 import { test, expect, vi, beforeAll, afterEach, afterAll } from "vitest";
+import ItemList from "../src/components/ItemList.jsx";
+
+
 
 // MSW interceptor server!
 import { server } from "../mocks/node.js";
@@ -23,23 +24,14 @@ afterAll(() => {
 });
 
 
-test("Health check widget sees the API health route", async () => {
-	render(<ApiHealthWidget />);
+test("ItemList retrieves a list of item objects from the API", async () => {
+	render(<ItemList />);
 
 	vi.waitFor(() => {
-		let healthCheckTextElement = screen.getByText("OK");
-		
-		expect(healthCheckTextElement).toBeInTheDocument();
-	});
+		let testMonitorTextElement = screen.getByText("Test Monitor");
+		expect(testMonitorTextElement).toBeInTheDocument();
 
+		let testKeyboardTextElement = screen.getByText("Test Keyboard");
+		expect(testKeyboardTextElement).toBeInTheDocument();
+	})
 });
-
-
-
-// test("Health check widget sees the API health route", async () => {
-// 	let renderResult = render(<ApiHealthWidget />);
-
-// 	let healthCheckTextElement = screen.getByText("ERROR");
-
-// 	expect(healthCheckTextElement).toBeInTheDocument();
-// });
