@@ -34,3 +34,12 @@ jobs:
       env:
         netlify-auth-token: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         netlify-site-id: ${{ secrets.NETLIFY_SITE_ID }}
+
+    - name: Check Secrets Availability
+      run: |
+          echo "Auth token length: ${#NETLIFY_AUTH_TOKEN}"
+          echo "Site ID length: ${#NETLIFY_SITE_ID}"
+      env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      
