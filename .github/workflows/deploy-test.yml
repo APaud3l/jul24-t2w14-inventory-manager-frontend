@@ -25,9 +25,9 @@ jobs:
 
     - name: List dist contents
       run: ls -la ./dist
-      
-    - name: Deploy to Netlify
-      uses: nwtgck/actions-netlify@v1.2.4
+
+    - name: Netlify Actions
+      uses: nwtgck/actions-netlify@v3.0.0
       with:
         publish-dir: ./dist
         production-deploy: true
