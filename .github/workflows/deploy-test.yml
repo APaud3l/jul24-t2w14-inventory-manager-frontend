@@ -31,6 +31,7 @@ jobs:
       with:
         publish-dir: ./dist
         production-deploy: true
+        github-token: ${{ secrets.GITHUB_TOKEN }}
       env:
         netlify-auth-token: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         netlify-site-id: ${{ secrets.NETLIFY_SITE_ID }}
